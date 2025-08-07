@@ -9,6 +9,7 @@ The project is organized by chapters, with each chapter focusing on a specific a
 - **Chapter 1**: Binary Search
 - **Chapter 2**: Selection Sort
 - **Chapter 3**: Recursion vs Loop
+- **Chapter 4**: Quick Sort
 
 Each chapter directory contains implementation files (`.go`) and corresponding test files (`_test.go`).
 
@@ -30,6 +31,7 @@ To run tests for a specific chapter:
 go test ./chapter01-binary_search
 go test ./chapter02-selection_sort
 go test ./chapter03-recursion
+go test ./chapter04-quick_sort
 ```
 
 To run a specific test:
@@ -52,12 +54,14 @@ To run benchmarks for a specific chapter:
 go test -bench=. ./chapter01-binary_search
 go test -bench=. ./chapter02-selection_sort
 go test -bench=. ./chapter03-recursion
+go test -bench=. ./chapter04-quick_sort
 ```
 
 To run a specific benchmark:
 
 ```bash
 go test -bench=BenchmarkBinarySearch ./chapter01-binary_search
+go test -bench=BenchmarkQuickSort ./chapter04-quick_sort
 ```
 
 ### Benchmark Output Example
