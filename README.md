@@ -2,6 +2,10 @@
 
 A collection of algorithmic solutions and concepts implemented in Go, based on "Grokking Algorithms" by Aditya Bhargava.
 
+## Prerequisites
+
+- Go 1.24+ (see go.mod)
+
 ## Structure
 
 The project is organized by chapters, with each chapter focusing on a specific algorithm or concept:
@@ -10,6 +14,9 @@ The project is organized by chapters, with each chapter focusing on a specific a
 - **Chapter 2**: Selection Sort
 - **Chapter 3**: Recursion vs Loop
 - **Chapter 4**: Quick Sort
+- **Chapter 6**: Breadth-First Search (BFS)
+- **Chapter 7**: Dijkstra's Algorithm (with a simple priority queue)
+- **Chapter 8**: Greedy Algorithm — Coin Change (UAH denominations)
 
 Each chapter directory contains implementation files (`.go`) and corresponding test files (`_test.go`).
 
@@ -32,6 +39,9 @@ go test ./chapter01-binary_search
 go test ./chapter02-selection_sort
 go test ./chapter03-recursion
 go test ./chapter04-quick_sort
+go test ./chapter06-breadth_first_search
+go test ./chapter07-Dijkstra_algorithm
+go test ./chapter08-greedy_algorithm
 ```
 
 To run a specific test:
@@ -55,6 +65,9 @@ go test -bench=. ./chapter01-binary_search
 go test -bench=. ./chapter02-selection_sort
 go test -bench=. ./chapter03-recursion
 go test -bench=. ./chapter04-quick_sort
+go test -bench=. ./chapter06-breadth_first_search
+go test -bench=. ./chapter07-Dijkstra_algorithm
+go test -bench=. ./chapter08-greedy_algorithm
 ```
 
 To run a specific benchmark:
@@ -95,3 +108,7 @@ This output shows:
 - `-timeout=T`: Set a timeout for the test, e.g., `-timeout=30s`
 - `-benchtime=T`: Run each benchmark for duration T (e.g., `-benchtime=5s`)
 - `-benchmem`: Include memory allocation statistics in benchmark results
+
+## Notes
+
+- Chapter 8 (Greedy Coin Change) uses Ukrainian hryvnia/kopeck denominations in tests and outputs, for example: `5грн.`, `1грн.`, `50к.`, `25к.`, `10к.`, `5к.`, `2к.`, `1к.`
