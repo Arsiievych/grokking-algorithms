@@ -17,6 +17,7 @@ The project is organized by chapters, with each chapter focusing on a specific a
 - **Chapter 6**: Breadth-First Search (BFS)
 - **Chapter 7**: Dijkstra's Algorithm (with a simple priority queue)
 - **Chapter 8**: Greedy Algorithm — Coin Change (UAH denominations)
+- **Chapter 9**: Dynamic Programming — Task Planner (Weighted Interval Scheduling)
 
 Each chapter directory contains implementation files (`.go`) and corresponding test files (`_test.go`).
 
@@ -42,6 +43,7 @@ go test ./chapter04-quick_sort
 go test ./chapter06-breadth_first_search
 go test ./chapter07-Dijkstra_algorithm
 go test ./chapter08-greedy_algorithm
+go test ./chapter09-dynamic_programming
 ```
 
 To run a specific test:
@@ -68,6 +70,7 @@ go test -bench=. ./chapter04-quick_sort
 go test -bench=. ./chapter06-breadth_first_search
 go test -bench=. ./chapter07-Dijkstra_algorithm
 go test -bench=. ./chapter08-greedy_algorithm
+go test -bench=. ./chapter09-dynamic_programming
 ```
 
 To run a specific benchmark:
@@ -108,6 +111,23 @@ This output shows:
 - `-timeout=T`: Set a timeout for the test, e.g., `-timeout=30s`
 - `-benchtime=T`: Run each benchmark for duration T (e.g., `-benchtime=5s`)
 - `-benchmem`: Include memory allocation statistics in benchmark results
+
+## Chapter 9: Dynamic Programming — Task Planner (Weighted Interval Scheduling)
+
+This chapter implements the classic Weighted Interval Scheduling problem. The goal is to choose a set of non-overlapping events with maximum total value.
+
+Key points:
+- Events are considered compatible if an earlier event ends at or before the next one starts (end <= start). This allows back-to-back scheduling.
+- The algorithm sorts by end time, finds the previous compatible event via binary search, and uses dynamic programming to compute the optimal value in O(n log n) time and O(n) space.
+- Reconstruction prefers including the current event when the "include" and "exclude" totals are equal, making the choice deterministic.
+- Zero-duration events (start == end) are supported and can fit between other events when compatible.
+- Negative-value events are naturally excluded by DP if they would reduce the total value.
+
+Run tests for this chapter:
+
+```bash
+go test ./chapter09-dynamic_programming -run TestPlanTasks
+```
 
 ## Notes
 
