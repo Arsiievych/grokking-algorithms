@@ -16,6 +16,7 @@ A collection of algorithmic solutions and concepts implemented in Go, based on "
   - [Chapter 8: Greedy Algorithm — Coin Change](#chapter-8-greedy-algorithm--coin-change)
   - [Chapter 9: Dynamic Programming — Task Planner](#chapter-9-dynamic-programming--task-planner)
 - [Running Tests](#running-tests)
+- [Running Benchmarks](#running-benchmarks)
 - [Additional Notes](#additional-notes)
 
 ## Prerequisites
@@ -83,11 +84,33 @@ Run a specific test by name (example):
 go test ./chapter01-binary_search -run TestBinarySearch
 ```
 
-Or run the dynamic programming tests for the task planner only:
+
+## Running Benchmarks
+
+Benchmarks are standard Go tests with names starting with Benchmark. If a package contains such functions, you can run them with the following commands.
+
+Run all benchmarks across the repository:
 
 ```bash
-go test ./chapter09-dynamic_programming -run TestPlanTasks
+go test -bench=. ./...
 ```
+
+Run benchmarks for a specific chapter (examples):
+
+```bash
+go test -bench=. ./chapter01-binary_search
+```
+
+Run a specific benchmark by name (examples):
+
+```bash
+go test -bench=BenchmarkBinarySearch ./chapter01-binary_search
+```
+
+Useful flags:
+- `-benchmem` — include memory allocation statistics
+- `-benchtime=5s` — increase benchmark run time for more stable numbers
+- `-count=5` — run benchmarks multiple times to reduce noise
 
 ## Additional Notes
 
